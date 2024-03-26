@@ -1,0 +1,48 @@
+# The Problem/Question: BlackJack!
+
+# player needs a bankroll from which to place bets and receive prize money
+# computer dealer has a pot with which he collects money
+# player starts the game with two cards face up 
+# dealer starts the game with one card face down and one card face up.
+# the player takes his turn first by choosing either to Hit or to Stay. His turn continues until he chooses to stay or he loses.
+# If the player hits (takes another card) then his sum is totalled and he busts if the sum is greater than 21.
+# If the player stays, then it is the computers turn.
+# The computer hits until it busts or beats the player with a sum greater than the player's but under 21.
+# The computer reveals his hand when at the beginning of its turn
+
+I. The Player
+    A. Property: bankroll. A number which keeps track of the player's money in dollars.
+    B. Property: hand. A list of the cards the player is holding.
+    C. Method: hit. A card is added to the player's hand and the card_sum is updated.
+    D. Method: stay. Sets is_turn to false.
+    E. Property: is_turn. boolean. Initializes to false.
+    F. Property: card_sum. Sum of the cards the player is holding.
+    G. Property: name. Name of the player.
+    
+II. The Deck
+    A. Property: cards. A list of the cards in the deck
+    B. Shuffle: shuffles the cards.
+    C. Draw: draws a card from the top of the deck, optionally draws multiple cards.
+    
+III. Card
+    A. Property: rank. string representing which card it is.
+    B. Property: value. The number value the card is worth.
+    C. Property: face_down. boolean, defaults to false
+    D. Method: flip. toggles face_down
+    E. Property: suit. 
+    
+IV. The Dealer
+    A. Property: pot. The dealer's collected money
+    B. Property: hand. A list of the dealer's cards.
+    C. Method: hit. A card is added to the dealers's hand and the card_sum is updated.
+    E. Property: is_turn. boolean. Initializes to false.
+    F. Property: card_sum. Sum of the cards the dealer is holding.
+    
+V. The Logic
+    A. The game begins with a variable to say whether the game is in play or is done.
+    C. The Deck, player, and dealer are initialized. The starting cards are dealt.
+    D. The Player_Turn takes place. The player is displayed his cards and sum and the dealer's cards/known sum, and is given the option to hit or stay.
+        1. If he hits, the new sum is checked by a win_check function which ends the loop and prints the winner if the player busts. Otherwise, the player_turn happens again.
+        2. If he stays, control passes to Dealer turn.
+    E. The dealer_turn takes place, and essentially there is just a loop where the dealer hits, the results are displayed, and win_check is run until the game ends.
+    F. Goal: Do this task with more focus and order than ever before
